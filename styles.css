@@ -3,10 +3,26 @@
   height: 500px;
   border: 1px solid #ccc;
   padding: 10px;
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+#history-menu {
+  margin-bottom: 10px;
+}
+
+#history-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#history-list li {
+  cursor: pointer;
 }
 
 #chat-messages {
+  flex-grow: 1;
+  overflow-y: scroll;
   margin-bottom: 10px;
 }
 
