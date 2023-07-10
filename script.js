@@ -26,11 +26,15 @@ historyList.addEventListener('click', (event) => {
 function sendMessage() {
   const userMessage = userInput.value;
   displayMessage(userMessage, 'user');
-  // Process the user message and generate a response
-  const botResponse = generateBotResponse(userMessage);
-  displayMessage(botResponse, 'bot');
   // Add the user message to chat history
   chatHistory.push({ message: userMessage });
+  // Check if the user message contains a question
+  const answer = getAnswer(userMessage);
+  if (answer) {
+    displayMessage(answer, 'bot');
+  } else {
+    displayMessage("Sorry, I don't have an answer for that.", 'bot');
+  }
   userInput.value = '';
   scrollToBottom();
   updateHistoryList();
@@ -44,10 +48,14 @@ function displayMessage(message, sender) {
   chatMessages.appendChild(messageElement);
 }
 
-// Function to generate a bot response (dummy implementation)
-function generateBotResponse(userMessage) {
-  // Replace this with your logic to generate bot responses
-  return 'This is a bot response.';
+// Function to check if the user message contains a question and return the corresponding answer
+function getAnswer(userMessage) {
+  // Replace this with your logic to determine the answer based on the user message
+  if (userMessage.toLowerCase().includes('what year is it')) {
+    const currentYear = new Date().getFullYear();
+    return `The current year is ${currentYear}.`;
+  }
+  return null;
 }
 
 // Function to update the history list
