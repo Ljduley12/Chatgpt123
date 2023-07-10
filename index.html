@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Chat GPT</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div id="chat-container">
-    <div id="history-menu">
-      <ul id="history-list"></ul>
+  <div class="container">
+    <div class="chat">
+      <div class="chat-header">
+        <h1>Chat GPT</h1>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <!-- Chat messages will be displayed here -->
+      </div>
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask a question...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
     </div>
-    <div id="chat-messages"></div>
-    <input type="text" id="user-input" placeholder="Type your message..." autofocus />
+    <div class="chat-data">
+      <h2>Chat Data</h2>
+      <ul id="chat-data-list">
+        <!-- Chat data will be displayed here -->
+      </ul>
+    </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
